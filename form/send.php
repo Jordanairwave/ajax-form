@@ -31,11 +31,13 @@
 			$sql_connection = mysqli_connect("$db_Host", "$db_User", "$db_Pass") or die("Cannot Connect to Database");
 		    mysqli_select_db($sql_connection, $db_Name);
 			
+			//Make data save to insert into Database
 			$name = mysqli_real_escape_string($sql_connection, $name);
 			$email = mysqli_real_escape_string($sql_connection, $email);
 			$message = mysqli_real_escape_string($sql_connection, $message);
 			$dateReceived = date('d-m-Y_hia');
 			
+			//Insert into database
 			$sql = "INSERT INTO contacts SET name='$name', `email`='$email', `message`='$message', `date`='$dateReceived'";
 			
 			mysqli_query($sql_connection, $sql);
